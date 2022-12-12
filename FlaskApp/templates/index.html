@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Header -->
+<header>
+    <div class="container" id="maincontent" tabindex="-1">
+      <div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="card">
+              <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                <div class="col-sm-3">
+                  <h2 id="user_name">...
+                    <div class="col-sm-3 col-sm-offset-3">
+                      <img class="img-responsive img-circle user_profile" src="{{ user_image }}" id="user_image">
+                    </div>
+                    <div class="col-sm-12">
+                      <p id="description">{{ description }}</p>
+                    </div>
+                    ...</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="intro-text">
+          <h1 class="name">Do you want to know what articles are recommended for you ?</h1>
+          <hr class="star-light">
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div id="fb-root"></div>
+  <script>
+  
+  </script>
+
+{% endblock %}

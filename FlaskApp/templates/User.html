@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header -->
+<header>
+<div class="row"></div>
+    <div class="container" id="maincontent" tabindex="-1">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h1>Choose UserId</h1>
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }} 
+                    <p>        
+                        <div>{{ form.userid.label }}<br></div>
+                        <div>{{ form.userid(size=32) }}</div>
+                        {% for error in form.userid.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}      
+                    </p>
+                    <p style="font-style:italic; font-size: 20px;">{{ form.submit() }}</p>
+                </form>
+
+                <h1>Recommended article</h1>
+                <hr>
+                {% for output in posts %}
+                <p>
+                {{ output.article}} with estimation: <b>{{ output.estimate }}</b>
+                </p>
+                {% endfor %}
+        </div>
+    </div>
+</header>
+{% endblock %}
