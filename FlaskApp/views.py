@@ -82,18 +82,5 @@ def userid():
 
     return render_template('User.html', title='Choose User', form=form, posts=outputs)
 
-
-@app.route("/recommendation/<int:user_id>/", methods = ['GET'])
-def recommend(user_id, num=5):
-    file_name = f"{BASE_DIR}/dump_file"
-    loaded_predictions, _ = dump.load(file_name)
-    top_n = get_top_n(loaded_predictions)
-    recs = top_n[user_id][:num]
-    list_reco = []   
-    for rec in recs:
-        list_reco.append(rec[0])
-    text = "Articles recommendés à l'utilisateur " + str(user_id)+": " + str(list_reco)
-    return recs
-
 if __name__ == "__main__":
     app.run()
