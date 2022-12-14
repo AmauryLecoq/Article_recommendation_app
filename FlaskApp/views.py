@@ -10,7 +10,6 @@ from pathlib import Path
 
 app = Flask(__name__)
 app.config.from_object(Config)
-#SECRET_KEY = os.environ["SECRET_KEY"]
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
 
@@ -45,7 +44,6 @@ def recommend(user_id, num=5):
     file_name = f"{BASE_DIR}/dump_file"
     loaded_predictions, _ = dump.load(file_name)
     top_n = get_top_n(loaded_predictions)
-    #user_id = request.args.get("user_id")
     recs = top_n[user_id][:num]
     return recs
 
@@ -90,13 +88,11 @@ def recommend(user_id, num=5):
     file_name = f"{BASE_DIR}/dump_file"
     loaded_predictions, _ = dump.load(file_name)
     top_n = get_top_n(loaded_predictions)
-    #user_id = request.args.get("user_id")
     recs = top_n[user_id][:num]
     list_reco = []   
     for rec in recs:
         list_reco.append(rec[0])
     text = "Articles recommendés à l'utilisateur " + str(user_id)+": " + str(list_reco)
-    #text = f"{type(user_id)}"
     return recs
 
 if __name__ == "__main__":
